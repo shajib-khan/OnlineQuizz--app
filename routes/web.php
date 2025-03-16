@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +19,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+//admin quiz create
+Route::get('quizzes/create', [QuizController::class, 'create'])->name('quizzes.create');
+Route::post('quizzes/store', [QuizController::class, 'store'])->name('quizzes.store');
+Route::get('quizzes', [QuizController::class, 'index'])->name('quizzes.index');
