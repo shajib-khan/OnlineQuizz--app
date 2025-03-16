@@ -7,6 +7,12 @@
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+    @if(session('delete'))
+    <div class="alert alert-success">{{ session('delete') }}</div>
+    @endif
+    @if(session('update'))
+    <div class="alert alert-success">{{ session('update') }}</div>
+    @endif
 
     <table class="table table-bordered mt-3">
         <thead class="thead-dark">
@@ -24,13 +30,11 @@
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->created_at->format('Y-m-d H:i') }}</td>
                     <td>
-                        {{-- <a href="{{ route('quizzes.show', $quiz->id) }}" class="btn btn-info btn-sm">View</a>
-                        <a href="{{ route('quizzes.edit', $quiz->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('quizzes.destroy', $quiz->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                        </form> --}}
+                      {{-- <a href="{{ route('quizzes.show', $quiz->id) }}" class="btn btn-info btn-sm">View</a> --}}
+                        <a href="{{ route('quiz.edit', $quiz->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-warning btn-sm">Delete</a>
+
+                        </form>
                     </td>
                 </tr>
             @empty

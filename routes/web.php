@@ -25,3 +25,9 @@ require __DIR__.'/auth.php';
 Route::get('quizzes/create', [QuizController::class, 'create'])->name('quizzes.create');
 Route::post('quizzes/store', [QuizController::class, 'store'])->name('quizzes.store');
 Route::get('quizzes', [QuizController::class, 'index'])->name('quizzes.index');
+
+//edit quiz
+
+Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('quiz.edit');
+Route::post('/quizzes/{quiz}/update', [QuizController::class, 'update'])->name('update.quiz');
+Route::get('delete/{quiz}',[QuizController::class,'deleteQuiz'])->name('quizzes.destroy');
