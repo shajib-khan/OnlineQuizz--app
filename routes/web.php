@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,7 +28,14 @@ Route::post('quizzes/store', [QuizController::class, 'store'])->name('quizzes.st
 Route::get('quizzes', [QuizController::class, 'index'])->name('quizzes.index');
 
 //edit quiz
-
 Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('quiz.edit');
 Route::post('/quizzes/{quiz}/update', [QuizController::class, 'update'])->name('update.quiz');
 Route::get('delete/{quiz}',[QuizController::class,'deleteQuiz'])->name('quizzes.destroy');
+
+//question
+Route::get('/create-question/{quiz}',[QuestionController::class,'create'])->name('create.question');
+Route::post('/store-question/{quiz}',[QuestionController::class,'store'])->name('questions.store');
+Route::get('/list/question/',[QuestionController::class,'show'])->name('list.question');
+
+
+

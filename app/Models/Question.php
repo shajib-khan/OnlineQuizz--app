@@ -15,4 +15,10 @@ class Question extends Model
     return $this->hasMany(Answer::class,'question_id');
 }
 
+public function quiz()
+{
+    return $this->belongsTo(Quiz::class);  // Correctly defining the relationship
+}
+
+
 }

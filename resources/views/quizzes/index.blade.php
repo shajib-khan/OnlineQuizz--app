@@ -8,10 +8,10 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
     @if(session('delete'))
-    <div class="alert alert-success">{{ session('delete') }}</div>
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-    @if(session('update'))
-    <div class="alert alert-success">{{ session('update') }}</div>
+    @if(session('delete'))
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
     <table class="table table-bordered mt-3">
@@ -30,7 +30,7 @@
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->created_at->format('Y-m-d H:i') }}</td>
                     <td>
-                      {{-- <a href="{{ route('quizzes.show', $quiz->id) }}" class="btn btn-info btn-sm">View</a> --}}
+                     <a href="{{ route('create.question', $quiz->id) }}" class="btn btn-info btn-sm">View</a>
                         <a href="{{ route('quiz.edit', $quiz->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-warning btn-sm">Delete</a>
 
