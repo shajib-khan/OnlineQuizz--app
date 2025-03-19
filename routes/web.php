@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\UserQuizAttemptController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,6 +42,13 @@ Route::get('/list/question/{quiz}', [QuestionController::class, 'show'])->name('
 Route::get('edit-question/{question}',[QuestionController::class,'edit'])->name('edit.question');
 Route::post('update/question/{question}',[QuestionController::class,'update'])->name('update.question');
 Route::get('delete/question/{question}',[QuestionController::class,'delete'])->name('delete.question');
+
+//user quiz attempt
+Route::get('/quiz/{quiz}/attempt', [UserQuizAttemptController::class, 'start'])->name('quiz.attempt');
+Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])->name('quiz.submit');
+Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])->name('quiz.submit');
+Route::get('/quiz/{quiz}/result', [UserQuizAttemptController::class, 'result'])->name('quiz.result');
+
 
 
 

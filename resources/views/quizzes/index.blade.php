@@ -13,7 +13,6 @@
     @if(session('update'))
     <div class="alert alert-success">{{ session('update') }}</div>
     @endif
-
     <table class="table table-bordered mt-3">
         <thead class="thead-dark">
             <tr>
@@ -34,6 +33,8 @@
                      <a href="{{ route('create.question', $quiz->id) }}" class="btn btn-info btn-sm">Create Question</a>
                         <a href="{{ route('quiz.edit', $quiz->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-warning btn-sm">Delete</a>
+                        <a href="{{ route('quiz.attempt', $quiz->id) }}" class="btn btn-warning btn-sm">attempt </a>
+
 
                         </form>
                     </td>

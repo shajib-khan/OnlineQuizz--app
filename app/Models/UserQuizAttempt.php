@@ -11,4 +11,13 @@ class UserQuizAttempt extends Model
         'user_id',
         'quiz_id',
     ];
+    public function quiz()
+    {
+        return $this->belongsTo(Quiz::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
