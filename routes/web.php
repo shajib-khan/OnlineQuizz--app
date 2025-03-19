@@ -49,6 +49,10 @@ Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])
 Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])->name('quiz.submit');
 Route::get('/quiz/{quiz}/result', [UserQuizAttemptController::class, 'result'])->name('quiz.result');
 
+//leaderboard
+Route::get('/quiz/leaderboard', [UserQuizAttemptController::class, 'leaderboard'])->name('quiz.leaderboard');
+
+
 
 
 

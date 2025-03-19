@@ -43,4 +43,14 @@ class UserQuizAttemptController extends Controller
         $attempt = UserQuizAttempt::where('user_id', Auth::id())->where('quiz_id', $quiz->id)->latest()->first();
         return view('attempt.result', compact('quiz', 'attempt'));
     }
+    //leaderboard
+    public function leaderboard()
+{
+    $leaderboard = UserQuizAttempt::with('user', 'quiz')
+        ->orderByDesc('score') // Order by highest score first
+        ->take(10) // Get the top 10 users
+        ->get();
+
+    return view('quizzes.leaderboard', compact('leaderboard'));
+}
 }

@@ -13,6 +13,8 @@
     @if(session('update'))
     <div class="alert alert-success">{{ session('update') }}</div>
     @endif
+    <a href="{{ route('quiz.leaderboard') }}" class="btn btn-info">View Leaderboard</a>
+
     <table class="table table-bordered mt-3">
         <thead class="thead-dark">
             <tr>
