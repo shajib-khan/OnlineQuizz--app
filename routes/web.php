@@ -35,7 +35,12 @@ Route::get('delete/{quiz}',[QuizController::class,'deleteQuiz'])->name('quizzes.
 //question
 Route::get('/create-question/{quiz}',[QuestionController::class,'create'])->name('create.question');
 Route::post('/store-question/{quiz}',[QuestionController::class,'store'])->name('questions.store');
-Route::get('/list/question/',[QuestionController::class,'show'])->name('list.question');
+Route::get('/list/question/{quiz}', [QuestionController::class, 'show'])->name('list.question');
+
+//edit question
+Route::get('edit-question/{question}',[QuestionController::class,'edit'])->name('edit.question');
+Route::post('update/question/{question}',[QuestionController::class,'update'])->name('update.question');
+Route::get('delete/question/{question}',[QuestionController::class,'delete'])->name('delete.question');
 
 
 

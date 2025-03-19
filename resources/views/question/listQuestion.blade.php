@@ -1,43 +1,50 @@
 @extends('master')
 
 @section('content')
-<div class="container">
+<div class="container mt-2">
 
-
+    {{-- Success Message --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
+    {{-- Quiz Title --}}
+    <h3>Questions for: <strong>{{ $quiz->title }}</strong></h3>
 
+    {{-- Back to Quiz List Button --}}
+    <a href="{{ route('quizzes.index') }}" class="btn btn-warning btn-sm mb-2">All Quizzes</a>
 
+    {{-- Questions Table --}}
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Question Text</th>
-                <th>Quiz</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($questions as $question)
+            @forelse ($questions as $question)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $question->question_text }}</td>
-                    <td>{{ $question->quiz ? $question->quiz->title : 'No Quiz Found' }}</td>
-
                     <td>
-                        {{-- <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('questions.destroy', $question->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form> --}}
+                        <a href="{{ route('edit.question', $question->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('delete.question', $question->id) }}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="3" class="text-center">No questions found.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
+
+    {{-- Pagination --}}
+    <div class="d-flex justify-content-center">
+        {{ $questions->links() }}
+    </div>
+
 </div>
 @endsection
-

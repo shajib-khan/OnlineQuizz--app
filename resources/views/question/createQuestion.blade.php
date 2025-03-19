@@ -4,7 +4,7 @@
 @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-    <h2>Create New Question for Quiz: {{ $quiz->title }}</h2>
+    
 
     <form action="{{ route('questions.store', $quiz->id) }}" method="POST">
         @csrf
