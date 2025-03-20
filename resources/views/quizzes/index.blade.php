@@ -14,13 +14,13 @@
     <div class="alert alert-success">{{ session('update') }}</div>
     @endif
     <a href="{{ route('quiz.leaderboard') }}" class="btn btn-info">View Leaderboard</a>
-
     <table class="table table-bordered mt-3">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>
                 <th>Title</th>
                 <th>Created At</th>
+                <th>Quiz</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -31,11 +31,13 @@
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->created_at->format('Y-m-d H:i') }}</td>
                     <td>
-                     <a href="{{ route('list.question', $quiz->id) }}" class="btn btn-info btn-sm">Show Question</a>
-                     <a href="{{ route('create.question', $quiz->id) }}" class="btn btn-info btn-sm">Create Question</a>
+                         <a href="{{ route('list.question', $quiz->id) }}" class="btn btn-info btn-sm">Show Question</a>
+                         <a href="{{ route('create.question', $quiz->id) }}" class="btn btn-info btn-sm">Create Question</a>
+                         <a href="{{ route('quiz.attempt', $quiz->id) }}" class="btn btn-warning btn-sm">attempt </a>
+                        </td>
+                    <td>
                         <a href="{{ route('quiz.edit', $quiz->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-warning btn-sm">Delete</a>
-                        <a href="{{ route('quiz.attempt', $quiz->id) }}" class="btn btn-warning btn-sm">attempt </a>
+                        <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-danger btn-sm">Delete</a>
 
 
                         </form>

@@ -46,11 +46,13 @@ Route::get('delete/question/{question}',[QuestionController::class,'delete'])->n
 //user quiz attempt
 Route::get('/quiz/{quiz}/attempt', [UserQuizAttemptController::class, 'start'])->name('quiz.attempt');
 Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])->name('quiz.submit');
-Route::post('/quiz/{quiz}/submit', [UserQuizAttemptController::class, 'submit'])->name('quiz.submit');
 Route::get('/quiz/{quiz}/result', [UserQuizAttemptController::class, 'result'])->name('quiz.result');
 
 //leaderboard
 Route::get('/quiz/leaderboard', [UserQuizAttemptController::class, 'leaderboard'])->name('quiz.leaderboard');
+
+
+
 
 
 

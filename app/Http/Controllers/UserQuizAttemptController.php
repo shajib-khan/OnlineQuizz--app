@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\UserQuizAttempt;
 use Illuminate\Support\Facades\Auth;
@@ -53,4 +54,6 @@ class UserQuizAttemptController extends Controller
 
     return view('quizzes.leaderboard', compact('leaderboard'));
 }
+
+
 }
